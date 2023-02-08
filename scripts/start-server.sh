@@ -87,8 +87,8 @@ if [ ! -f "${DATA_DIR}/cfg/org.jdownloader.settings.GraphicalUserInterfaceSettin
 }' >> "${DATA_DIR}/cfg/org.jdownloader.settings.GraphicalUserInterfaceSettings.lastframestatus.json"
 fi
 
-sed -i '/"width"/c\  "width" : '${CUSTOM_RES_W}',' "${DATA_DIR}/cfg/org.jdownloader.settings.GraphicalUserInterfaceSettings.lastframestatus.json"
-sed -i '/"height"/c\  "height" : '${CUSTOM_RES_H}',' "${DATA_DIR}/cfg/org.jdownloader.settings.GraphicalUserInterfaceSettings.lastframestatus.json"
+sed -i '/"width"/c\ "width"          : '${CUSTOM_RES_W}',' "${DATA_DIR}/cfg/org.jdownloader.settings.GraphicalUserInterfaceSettings.lastframestatus.json"
+sed -i '/"height"/c\ "height"         : '${CUSTOM_RES_H}',' "${DATA_DIR}/cfg/org.jdownloader.settings.GraphicalUserInterfaceSettings.lastframestatus.json"
 if [ ! -f "${DATA_DIR}/cfg/org.jdownloader.settings.GeneralSettings.json" ]; then
     cd "${DATA_DIR}/cfg"
     touch "org.jdownloader.settings.GeneralSettings.json"
@@ -110,16 +110,6 @@ sleep 2
 echo "---Starting noVNC server---"
 websockify -D --web=/usr/share/novnc/ --cert=/etc/ssl/novnc.pem ${NOVNC_PORT} localhost:${RFB_PORT}
 sleep 2
-
-echo "+-------------------------------------------------------------"
-echo "|"
-echo "| This container for ARM is deprecated and is no"
-echo "| longer actively maintained or further developed!"
-echo "|"
-echo "|  Container will start in 60 seconds!"
-echo "|"
-echo "+-------------------------------------------------------------"
-sleep 60
 
 echo "---Starting jDownloader2---"
 export DISPLAY=:99
