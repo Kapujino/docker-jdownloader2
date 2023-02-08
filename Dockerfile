@@ -14,12 +14,12 @@ RUN export TZ=Europe/Berlin && \
 	apt-get -y install adoptopenjdk-8-hotspot && \
 	apt-get -y remove software-properties-common gnupg2 && \
 	apt-get -y autoremove && \
-	echo "ko_KR.UTF-8 UTF-8" >> /etc/locale.gen && \ 
+	echo "ko_KR.UTF-8 UTF-8" >> /etc/locale.gen && \
 	echo "ja_JP.UTF-8 UTF-8" >> /etc/locale.gen && \
 	locale-gen && \
 	rm -rf /var/lib/apt/lists/* && \
 	sed -i '/    document.title =/c\    document.title = "jDownloader2 - noVNC";' /usr/share/novnc/app/ui.js && \
-	rm /usr/share/novnc/app/images/icons/*
+	rm -f /usr/share/novnc/app/images/icons/*
 
 
 ENV DATA_DIR=/jDownloader2
